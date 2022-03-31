@@ -1,8 +1,11 @@
 <template>
   <div>
       <ul>
-        <li v-for="todoItem in todoItems" v-bind:key="todoItem">
+        <li v-for="todoItem in todoItems" v-bind:key="todoItem" class="shadow">
           {{ todoItem }}
+          <span class="removeBtn" v-on:click="removeTodo">
+            <i class="fas fa-trash-alt"></i>
+          </span>
         </li>
       </ul>
   </div>
@@ -13,6 +16,11 @@ export default {
   data: function() {
     return {
       todoItems: []
+    }
+  },
+  methods: {
+    removeBtn: function() {
+
     }
   },
   created: function() {
@@ -28,6 +36,38 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+  margin-top: 0;
+  text-align: left;
+}
+li {
+  display: flex;
+  min-height: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0.5rem 0;
+  padding: 0 0.9rem;
+  background: white;
+  border-radius: 5px;
+}
+.checkBtn {
+  line-height: 45px;
+  /* color: black; */
+  color: #62acde;
+  margin-right: 5px;
+}
+.removeBtn {
+  margin-left: auto;
+  color: #de4343;
+}
+.checkBtnCompleted {
+  /* color: #62acde; */
+  color: black;
+}
+.textCompleted {
+  text-decoration: line-through;
+}
 </style>
